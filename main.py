@@ -1,13 +1,14 @@
-from openai import OpenAI
+from anthropic import Anthropic
 
-client = OpenAI()
+client = Anthropic()
 
-response = client.chat.completions.create(
-    model="gpt-4o-mini",
+message = client.messages.create(
+    model="claude-sonnet-5",
+    max_tokens=1024,
     messages=[
         {"role": "user",
          "content": "Write how is Shuaib, He is big fan of fortnite"}
     ]
 )
 
-print(response.choices[0].message.content)
+print(message.content[0].text)

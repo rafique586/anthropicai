@@ -2,29 +2,30 @@
 
 A small personal repository used to keep Claude/AI-generated code snippets and experiments.
 
-Currently this repo contains a single script, `main.py`, which sends one chat completion request. Note that despite the repo's name (and description "repository to keep all Claude generated code"), the current script calls the **OpenAI** API (`from openai import OpenAI`, model `gpt-4o-mini`) rather than the Anthropic API — this looks like an early/experimental snippet rather than a finished project.
+Currently this repo contains a single script, `main.py`, which sends one message to Claude and prints the reply. (An earlier version of this script called the OpenAI API instead, which didn't match the repo's stated purpose — it's since been switched to the Anthropic API.)
 
 ## What it does
 
-`main.py` creates an OpenAI client, sends a single hardcoded prompt to `gpt-4o-mini`, and prints the response text. There is no CLI, configuration, or error handling — it's a minimal one-off script.
+`main.py` creates an Anthropic client, sends a single hardcoded prompt to `claude-sonnet-5`, and prints the response text. There is no CLI, configuration, or error handling — it's a minimal one-off script.
 
 ## Tech stack
 
 - Python 3
-- [`openai`](https://pypi.org/project/openai/) Python SDK
+- [`anthropic`](https://pypi.org/project/anthropic/) Python SDK
 
 ## Setup / run
 
 ```bash
-pip install openai
-export OPENAI_API_KEY=sk-...
+pip install -r requirements.txt
+export ANTHROPIC_API_KEY=sk-ant-...
 python main.py
 ```
 
 ## Project structure
 
 ```
-main.py   # single script: sends one chat completion request and prints the reply
+main.py             # single script: sends one message to Claude and prints the reply
+requirements.txt    # single dependency: anthropic
 ```
 
 This repo is a scratch space for AI-related code snippets, so structure and contents are expected to evolve over time. Given its current size (a single ~10-line script), a separate architecture document isn't warranted yet.
